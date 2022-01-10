@@ -1,13 +1,16 @@
 {
-    "name": "mkfizi/fortify",
+    "name": "laravel/laravel",
     "type": "project",
-    "description": "Laravel 8 authentication boilerplate using Laravel Fortify package and stylized with Bootstrap 5 CSS framework.",
-    "keywords": ["framework", "laravel"],
+    "description": "Laravel app to book travel package .",
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "authors": [
         {
-            "name": "mkfizi",
-            "email": "mkfizi93@gmail.com"
+            "name": "augadh",
+            "email": "ankit.kumar060@gmail.com"
         }
     ],
     "require": {

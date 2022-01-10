@@ -1,9 +1,9 @@
-@extends('admin.sidebar')
+@extends('user.sidebar')
 
 @section('title')
     {{ __('Dashboard') }}
 @endsection
 
-@section('admindash')
+@section('userdash')
 
 @endsection

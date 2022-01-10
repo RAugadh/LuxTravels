@@ -15,7 +15,8 @@ class HomeController extends Controller
             return view('admin.dash');
         }
         else{
-            return view('home');
+            return view('user.dash');
         }
+
     }
 }

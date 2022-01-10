@@ -5,6 +5,7 @@
     --skyDark: #007cc7;
     --skyLight: #4da8da;
     --fontLight: #eedbdb;
+    --fontDark: #313131;
 }
 /* responsive font Var */
 :root {
@@ -16,11 +17,29 @@
     font-size: var(--rem);
 }
 
+/* Offcanvas Vars */
+:root {
+    --offcanvas-width: 270px;
+    --topNavBarHeight: 68px;
+}
+
 /*Google Font import "Sora"*/
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500&display=swap");
 
 /* start here */
 /* body */
+.bgdrake {
+    background-color: var(--drakeDark);
+}
+.bg-content {
+    background-color: var(--drakeLight);
+}
+.lightfont {
+    color: var(--fontLight);
+}
+.darkfont {
+    color: var(--fontDark);
+}
 body {
     font-family: "Sora", sans-serif;
     color: var(--fontLight);
@@ -31,7 +50,7 @@ body {
     background-image: url(../images/page-turner.svg);
     background-repeat: no-repeat;
     background-position: top right;
-    background-size: 300px;
+    background-size: 270px;
 }
 /* ............................................... */
 
@@ -39,11 +58,12 @@ body {
 .dark-nav {
     background-color: var(--drakeDark);
     box-shadow: 2px 2px #223546b4;
+    max-height: 68px;
 }
 .navbar-nav > li > a {
     text-decoration: none;
 }
-.nav-btn-login {
+.nav-btn {
     background-color: var(--drakeDark);
     color: var(--fontLight);
     border: var(--drakeLight) solid;
@@ -75,47 +95,6 @@ body {
     background-color: var(--skyDark);
     color: var(--fontLight);
 }
-/* Media queries */
-@media (max-width: 991px) {
-    .bg-flip {
-        background-size: 275px;
-    }
-    .collapse > ul {
-        margin-top: 10px;
-    }
-    .navbar-nav > li > a {
-        border-style: solid;
-        padding: 1.2rem;
-        margin-top: 0.6rem;
-        margin-bottom: 0.6rem;
-        border-width: 0.01px;
-        border-color: var(--fontLight);
-        text-decoration: none;
-    }
-    .nav-btn-login {
-        padding: 1.2rem;
-        background-color: var(--skyLight);
-    }
-    .bg-flip {
-        background-size: 275px;
-    }
-    .collapse > ul {
-        margin-top: 10px;
-    }
-    .navbar-nav > li > a {
-        border-style: solid;
-        padding: 1.2rem;
-        margin-top: 0.6rem;
-        margin-bottom: 0.6rem;
-        border-width: 0.01px;
-        border-color: var(--fontLight);
-        text-decoration: none;
-    }
-    .nav-btn-login {
-        padding: 1.2rem;
-        background-color: var(--skyLight);
-    }
-}
 .login-frm-bg {
     background-color: var(--skyDark);
 }
@@ -126,6 +105,32 @@ body {
 .link-a:hover {
     color: var(--drakeLight);
 }
+/* Media queries */
+@media (max-width: 991px) {
+    .bg-flip {
+        background-size: 275px;
+    }
+    .hero-image img {
+        width: 300px;
+    }
+    .collapse > ul {
+        margin-top: 10px;
+    }
+    .navbar-nav > li > a {
+        border-style: solid;
+        padding: 1.2rem;
+        margin-top: 0.6rem;
+        margin-bottom: 0.6rem;
+        border-width: 0.01px;
+        border-color: var(--fontLight);
+        text-decoration: none;
+    }
+    .nav-btn-login {
+        padding: 1.2rem;
+        background-color: var(--skyLight);
+    }
+}
+
 @media (max-width: 577px) {
     .bg-flip {
         background-size: 125px;
@@ -133,5 +138,31 @@ body {
     .nav-brand img {
         width: 120px;
         max-height: 60px;
+    }
+    .hero-image img {
+        width: 200px;
+    }
+}
+
+/* Sidebar Offcanvas Dash */
+.sidebar-nav {
+    width: var(--offcanvas-width);
+}
+
+@media (min-width: 992px) {
+    .bgdrake {
+        overflow: auto !important;
+    }
+    .offcanvas-backdrop::before {
+        display: none;
+    }
+    .sidebar-nav {
+        transform: none;
+        visibility: visible !important;
+        top: var(--topNavBarHeight);
+        height: calc(100% - var(--topNavBarHeight));
+    }
+    .mainContent {
+        margin-left: var(--offcanvas-width);
     }
 }
