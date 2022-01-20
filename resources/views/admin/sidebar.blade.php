@@ -1,4 +1,4 @@
-@extends('layouts.dashcommon')
+@extends('layouts.dashnav')
 
 @section('title')
     {{ __('Admin') }}
@@ -13,42 +13,43 @@
         <div class="offcanvas-body">
             <nav class=" navbar-dark">
                 <ul class="navbar-nav">
+                    <li class="d-grid mx-1 mb-4 {{ request()->is('dashboard') ? 'btn-primary' : 'nav-btn' }}">
+                        <a href="{{ url('dashboard') }}" class=" nav-link mx-auto">
+                            <span>
+                                <i class="bi bi-speedometer2 me-2"></i>
+                            </span>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
                     <li>
                         <div class=" fw-bold">
                             Users
                         </div>
                     </li>
                     <li class="d-grid mx-1 {{ request()->is('admin/users') ? 'btn-primary' : 'nav-btn' }}">
-                        <a href="{{ route('admin.users') }}" class=" nav-link mx-auto">
+                        <a href="{{ url('admin/users') }}" class=" nav-link mx-auto">
                             <span>
                                 <i class="bi bi-people-fill me-2"></i>
                             </span>
                             <span>User Management</span>
                         </a>
                     </li>
-                    <li class="d-grid mx-1 mt-3 {{ request()->is('admin/requests') ? 'btn-primary' : 'nav-btn' }}">
-                        <a href="{{ route('admin.requests') }}" class=" nav-link mx-auto">
-                            <span>
-                                <i class="bi bi-info-square-fill me-2"></i>
-                            </span>
-                            <span>User Requests</span>
-                        </a>
-                    </li>
+
                     <li>
                         <div class=" fw-bold my-3 mt-5">
                             Booking
                         </div>
                     </li>
                     <li class="d-grid mx-1 mb-3 {{ request()->is('admin/tickets') ? 'btn-primary' : 'nav-btn' }}">
-                        <a href="{{ route('admin.tickets') }}" class=" nav-link  mx-auto">
+                        <a href="{{ url('admin/tickets') }}" class=" nav-link  mx-auto">
                             <span>
                                 <i class="bi bi-ticket-detailed me-2"></i>
                             </span>
                             <span>Ticket Management</span>
                         </a>
                     </li>
-                    <li class="d-grid mx-1 {{ request()->is('admin/package') ? 'btn-primary' : 'nav-btn' }}">
-                        <a href="{{ route('admin.package') }}" class=" mx-auto nav-link">
+                    <li class="d-grid mx-1 {{ request()->is('admin/tours') ? 'btn-primary' : 'nav-btn' }}">
+                        <a href="{{ url('admin/tours') }}" class=" mx-auto nav-link">
                             <span>
                                 <i class="bi bi-box-seam me-2"></i>
                             </span>
@@ -60,8 +61,8 @@
                             Profile
                         </div>
                     </li>
-                    <li class="d-grid mx-1 mb-3 {{ request()->is('profile/edit') ? 'btn-primary' : 'nav-btn' }}">
-                        <a href="{{ route('profile.edit') }}" class=" mx-auto nav-link">
+                    <li class="d-grid mx-1 mb-3">
+                        <a href="" class=" mx-auto nav-link">
                             <span>
                                 <i class="bi bi-person-bounding-box me-2"></i>
                             </span>
@@ -84,7 +85,7 @@
             </nav>
 
         </div>
-    </div>
+    </div> --}}
     <div class="mainContent">
         @yield('admindash')
     </div>

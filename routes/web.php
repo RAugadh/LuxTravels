@@ -1,6 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Routing\RouteGroup;
+use Admin\UserController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RoleController;
+use Admin\TicketsController;
+use Admin\TourPackageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,39 +20,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+Route::middleware(['auth','verified'])->name('home')->group(function (){
+    Route::get('dashboard','HomeController@index');
 });
 
-//Group routes to go through auth & verified middlewares
-Route::middleware(['auth', 'verified'])->group(function (){
-
-    //Home page
-    // Route::view('/home', 'home')->name('home');
-
-    //Edit profile page
-    Route::view('/profile/edit', 'profile.edit-profile')->name('profile.edit');
-
-    //Edit password page
-    Route::view('/password/edit', 'profile.edit-password')->name('password.edit');
-
-    Route::view('/tickets', 'user.ticket')->name('user.ticket');
-    Route::view('/book', 'user.book')->name('user.book');
-    Route::view('/contact', 'user.contact')->name('user.contact');
-
-    Route::view('/admin/package', 'admin.package')->name('admin.package');
-    Route::view('/admin/tickets', 'admin.tickets')->name('admin.tickets');
-    Route::view('/admin/requests', 'admin.requests')->name('admin.requests');
-    Route::view('/admin/users', 'admin.users')->name('admin.users');
-
-    Route::view('/admin/sidebar', 'admin.sidebar')->name('admin.sidebar');
-
-
-
-    //Toggle two factor authentication page
-    Route::view('/two-factor-authentication/toggle', 'profile.toggle-two-factor-authentication')->name('two-factor-authentication.toggle');
+// Admin Routes
+Route::prefix('admin')->middleware(['auth','verified','auth.Role'])->name('admin.')->group(function (){
+    Route::resource('/users', UserController::class);
+    Route::resource('/tours', TourPackageController::class);
+    Route::resource('/tickets', TicketsController::class);
 });
-
-//Send two factor recovery codes email
-Route::post('/user/two-factor-recovery-codes/email', 'App\Http\Controllers\EmailController@sendTwoFactorRecoveryCodes')->name('two-factor-recovery-codes.send');
-
-Route::get('dashboard','App\Http\Controllers\HomeController@index');
+// User Routes
+Route::prefix('user')->middleware(['auth','verified','auth.Role'])->name('user.')->group(function (){
+    Route::view('/dashboard', 'user.dashboard');
+});
