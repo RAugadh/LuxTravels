@@ -10,23 +10,23 @@ Link=> https://github.com/RAugadh/LuxTravels
 
 ## Setup .ENV
 
-    Rename .env.example to .env
-    Edit your database credentials
-    Create a database with PhpMyAdmin
-    Edit your Mailtrap credentials
+-   Rename .env.example to .env
+-   Edit your database credentials
+-   Create a database with PhpMyAdmin
+-   Edit your Mailtrap credentials
 
 ## Install dependency
 
-composer install
+    composer install
 
 ## Generate Laravel Key
 
-php artisan key:generate
+    php artisan key:generate
 
 ## Migrate Database with dummy users
 
-php artisan migrate –seed
+    php artisan migrate –seed
 
 ## Run Application
 
-php artisan serve
+    php artisan serve
