@@ -3,8 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Tour;
 
-class CreateTourPackagesModules extends Migration
+class CreateToursModulesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +14,10 @@ class CreateTourPackagesModules extends Migration
      */
     public function up()
     {
-        Schema::create('tour_packages_modules', function (Blueprint $table) {
+        Schema::create('tours_modules', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('tour_id')->constrained()->onDelete('cascade');
+            // $table->foreignId('tour_id')->constrained()->onDelete('cascade');
+            $table->foreignIdFor(Tour::class)->constrained()->onDelete('cascade');
             $table->string('module_1');
             $table->string('module_2');
             $table->string('module_3');
@@ -32,6 +34,6 @@ class CreateTourPackagesModules extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tour_packages_modules');
+        Schema::dropIfExists('tours_modules');
     }
 }

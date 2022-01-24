@@ -5,8 +5,7 @@ use Illuminate\Routing\RouteGroup;
 use Admin\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
-use Admin\TicketsController;
-use Admin\TourPackageController;
+use Admin\TourController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,8 +28,8 @@ Route::middleware(['auth','verified'])->name('home')->group(function (){
 // Admin Routes
 Route::prefix('admin')->middleware(['auth','verified','auth.Role'])->name('admin.')->group(function (){
     Route::resource('/users', UserController::class);
-    Route::resource('/tours', TourPackageController::class);
-    Route::resource('/tickets', TicketsController::class);
+    Route::resource('/tours', TourController::class);
+    // Route::resource('/tickets', TicketsController::class);
 });
 // User Routes
 Route::prefix('user')->middleware(['auth','verified','auth.Role'])->name('user.')->group(function (){
