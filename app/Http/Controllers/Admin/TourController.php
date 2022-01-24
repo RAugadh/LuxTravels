@@ -122,7 +122,7 @@ class TourController extends Controller
         $tour->highlight = $request->highlight;
         if($request->hasFile('image'))
         {
-            $destination = 'uploads/tours'.$tour->image;
+            $destination = 'uploads/tours/'.$tour->image;
             if(File::exists($destination)){
                 File::delete($destination);
             }
@@ -155,8 +155,15 @@ class TourController extends Controller
      */
     public function destroy($id, Request $request)
     {
-        Tour::destroy($id);
-        ToursModule::destroy('tour_id' == $id);
+        $tour_id = $id;
+        $tour = Tour::find($id);
+        $modules = ToursModule::find($tour_id);
+        $destination = 'uploads/tours/'.$tour->image;
+        if(File::exists($destination)){
+                File::delete($destination);
+        }
+        $tour->delete();
+        $modules->delete();
         $request->session()->flash('success', 'The Tour has been Deleted.');
         return redirect(route('admin.tours.index'));
     }

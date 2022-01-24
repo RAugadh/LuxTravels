@@ -22,7 +22,7 @@
             @endif
             <a class="btn btn-primary" href="{{ url('admin/tours') }}"> Go Back</a>
             <form action="{{ route('admin.tours.update', $tour->id) }}" method="POST" enctype="multipart/form-data">
-                @method('PATCH')
+                @method('PUT')
                 @include('admin.tours.partials.form', ['edit' => true])
             </form>
         </div>
