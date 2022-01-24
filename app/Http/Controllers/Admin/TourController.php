@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Tour;
 use App\Models\ToursModule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class TourController extends Controller
 {
@@ -71,7 +72,7 @@ class TourController extends Controller
         $modules->module_5 = $request->module_5;
         $modules->save();
 
-
+        $request->session()->flash('success', 'The Tour has been Created.');
         return redirect(route('admin.tours.index'));
     }
 
@@ -92,9 +93,14 @@ class TourController extends Controller
      * @param  \App\Models\Tour  $tour
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tour $tour)
+    public function edit($id)
     {
-        //
+        $tour_id = $id;
+        return view('admin.tours.edit')->with([
+
+            'tour' => Tour::find($id),
+            'module' => ToursModule::find($tour_id)
+        ]);
     }
 
     /**
@@ -104,9 +110,41 @@ class TourController extends Controller
      * @param  \App\Models\Tour  $tour
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tour $tour)
+    public function update(Request $request, $id)
     {
-        //
+        $tour_id = $id;
+        $tour = Tour::find($id);
+
+        $tour->name = $request->name;
+        $tour->sub = $request->sub;
+        $tour->description = $request->description;
+        $tour->price = $request->price;
+        $tour->highlight = $request->highlight;
+        if($request->hasFile('image'))
+        {
+            $destination = 'uploads/tours'.$tour->image;
+            if(File::exists($destination)){
+                File::delete($destination);
+            }
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extension;
+            $file->move('uploads/tours', $filename);
+            $tour->image = $filename;
+        }
+        $tour->update();
+
+        $modules = ToursModule::find($tour_id);
+        $modules->module_1 = $request->module_1;
+        $modules->module_2 = $request->module_2;
+        $modules->module_3 = $request->module_3;
+        $modules->module_4 = $request->module_4;
+        $modules->module_5 = $request->module_5;
+        $modules->update();
+
+        $request->session()->flash('success', 'Tour details have been Updated.');
+        return redirect(route('admin.tours.index'));
+
     }
 
     /**
@@ -119,7 +157,7 @@ class TourController extends Controller
     {
         Tour::destroy($id);
         ToursModule::destroy('tour_id' == $id);
-
+        $request->session()->flash('success', 'The Tour has been Deleted.');
         return redirect(route('admin.tours.index'));
     }
 }

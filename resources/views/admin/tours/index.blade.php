@@ -2,7 +2,7 @@
 
 @section('admindash')
     <div class="px-5 py-3  overflow-hidden">
-
+        @include('partials.alerts')
         <div class=" clearfix darkfont mb-3">
             <h3 class=" float-start">Tour Packages </h3>
             <a class=" float-end btn btn-success" href="{{ route('admin.tours.create') }}" role="button">Create</a>
@@ -52,7 +52,8 @@
                                 @endforeach
                             </ul>
                             <div class="">
-                                <a href="" role="button" class="mt-2 float-end w-25 btn btn-primary"><i
+                                <a href="{{ route('admin.tours.edit', $tour->id) }}" role="button"
+                                    class="mt-2 float-end w-25 btn btn-primary"><i
                                         class="bi bi-pen">{{ __(' Edit') }}</i>
                                 </a>
                                 <button type="button" class=" mx-2 mt-2 float-end w-25 btn btn-danger"

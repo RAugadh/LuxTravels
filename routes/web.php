@@ -18,9 +18,8 @@ use Admin\TourController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'HomeController@home');
+
 Route::middleware(['auth','verified'])->name('home')->group(function (){
     Route::get('dashboard','HomeController@index');
 });

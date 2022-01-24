@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('nav')
 
-    <body class="bg-flip overflow-hidden">
+    <body class="bg-flip">
         <div>
             <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
                 <div class="container-lg container-fluid mt-2">
