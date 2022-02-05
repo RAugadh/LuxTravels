@@ -30,7 +30,6 @@
         <script>
             document.body.classList.remove("bg-light");
             document.body.classList.add("bg-content");
-            $("#inputHighlight").prop('checked', true);
 
             function previewFile(input) {
                 var file = $("input[type=file]").get(0).files[0];

@@ -9,8 +9,8 @@
             <h3 class=" float-start">Registered Users </h3>
             <a class=" float-end btn btn-success" href="{{ route('admin.users.create') }}" role="button">Create</a>
         </div>
-        <div class="bg-transparent darkfont shadow-sm p-3 mb-5 bg-white rounded">
-            <table id="tableCrud" class="table table-borderless table-striped mt-3 p-3 text-center" style="width:100%">
+        <div class="bg-transparent darkfont shadow-sm p-2 mb-5 bg-white rounded">
+            <table id="tableCrud" class="table table-borderless table-striped mt-3 p-2 text-center" style="width:100%">
                 <thead>
                     <tr>
                         <th>#ID</th>

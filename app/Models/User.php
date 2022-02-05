@@ -22,6 +22,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'photo',
     ];
 
     /**
@@ -50,7 +51,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
     public function tickets()
     {
-        return $this->hasMany('App\Models\Tickets');
+        return $this->hasMany(Tickets::class);
     }
 
 

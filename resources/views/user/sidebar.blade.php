@@ -13,8 +13,8 @@
         <div class="offcanvas-body">
             <nav class=" navbar-dark">
                 <ul class="navbar-nav">
-                    <li class="d-grid mx-1 ">
-                        <a href="" class=" nav-link mx-auto">
+                    <li class="d-grid mx-1 {{ request()->is('dashboard') ? 'btn-primary' : 'nav-btn' }}">
+                        <a href="{{ url('dashboard') }}" class=" nav-link mx-auto">
                             <span>
                                 <i class="bi bi-speedometer2 me-2"></i>
                             </span>
@@ -26,16 +26,16 @@
                             Booking
                         </div>
                     </li>
-                    <li class="d-grid mx-1 mb-3 ">
-                        <a href="" class=" nav-link  mx-auto">
+                    <li class="d-grid mx-1 mb-3 {{ request()->is('user/book') ? 'btn-primary' : 'nav-btn' }}">
+                        <a href="{{ url('user/book') }}" class=" nav-link  mx-auto">
                             <span>
                                 <i class="bi bi-ticket-detailed me-2"></i>
                             </span>
                             <span>Book Travel Package</span>
                         </a>
                     </li>
-                    <li class="d-grid mx-1 mb-3 ">
-                        <a href="" class=" mx-auto nav-link">
+                    <li class="d-grid mx-1 mb-3 {{ request()->is('user/tickets') ? 'btn-primary' : 'nav-btn' }}">
+                        <a href="{{ url('user/tickets') }}" class=" mx-auto nav-link">
                             <span>
                                 <i class="bi bi-ticket-fill me-2"></i>
                             </span>
@@ -48,8 +48,8 @@
                             Profile
                         </div>
                     </li>
-                    <li class="d-grid mx-1 mb-5 ">
-                        <a href="" class=" mx-auto nav-link ">
+                    <li class="d-grid mx-1 mb-5 {{ request()->is('user/profile') ? 'btn-primary' : 'nav-btn' }}">
+                        <a href="{{ url('/user/profile') }}" class=" mx-auto nav-link ">
                             <span>
                                 <i class="bi bi-person-bounding-box me-2"></i>
                             </span>

@@ -5,7 +5,7 @@
 
 
     <div>
-        <header class="container-md row p-5 mx-auto mt-5 justify-content-center align-items-center">
+        <header class="container-md row p-5 mx-auto mt-5 mb-5 justify-content-center align-items-center">
             <div class="hero-image col-md-8 col-lg-6 mt-5">
                 <img src="{{ asset('assets/images') }}/banner.jpg" alt="" />
             </div>
@@ -49,20 +49,20 @@
                                         @isset($tour)
                                             @if ($module->tour_id == $tour->id)
                                                 <li class="tag__item">
-                                                    <i class="fas fa-tag mr-2"></i>{{ $module->module_1 }}
+                                                    <i class="bi bi-play mr-2"></i>{{ $module->module_1 }}
                                                 </li>
 
                                                 <li class="tag__item">
-                                                    <i class="fas fa-clock mr-2"></i>{{ $module->module_2 }}
+                                                    <i class="bi bi-play mr-2"></i>{{ $module->module_2 }}
                                                 </li>
                                                 <li class="tag__item play red">
-                                                    <i class="fas fa-play mr-2"></i> {{ $module->module_3 }}
+                                                    <i class="bi bi-play mr-2"></i> {{ $module->module_3 }}
                                                 </li>
                                                 <li class="tag__item play red">
-                                                    <i class="fas fa-play mr-2"></i>{{ $module->module_4 }}
+                                                    <i class="bi bi-play mr-2"></i>{{ $module->module_4 }}
                                                 </li>
                                                 <li class="tag__item play red">
-                                                    <i class="fas fa-play mr-2"></i>{{ $module->module_5 }}
+                                                    <i class="bi bi-play mr-2"></i>{{ $module->module_5 }}
                                                 </li>
                                             @endif
                                         @endisset

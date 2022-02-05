@@ -7,8 +7,8 @@
 @section('content')
     <div class="offcanvas offcanvas-start sidebar-nav bgdrake lightfont" tabindex="-1" id="offcanvasExample"
         aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Admin Panel</h5>
+        <div class="offcanvas-header ">
+            <h4 class="offcanvas-title mx-auto mt-2" id="offcanvasExampleLabel">Admin Panel</h4>
         </div>
         <div class="offcanvas-body">
             <nav class=" navbar-dark">
@@ -34,9 +34,17 @@
                             <span>User Management</span>
                         </a>
                     </li>
+                    <li class="d-grid mx-1 mt-2 {{ request()->is('admin/users') ? 'btn-primary' : 'nav-btn' }}">
+                        <a href="{{ url('admin/users') }}" class=" nav-link mx-auto">
+                            <span>
+                                <i class="bi bi-headset me-2"></i>
+                            </span>
+                            <span>Raised Ticket</span>
+                        </a>
+                    </li>
 
                     <li>
-                        <div class=" fw-bold my-3 mt-5">
+                        <div class=" fw-bold my-3 mt-4">
                             Booking
                         </div>
                     </li>
@@ -57,12 +65,12 @@
                         </a>
                     </li>
                     <li>
-                        <div class=" fw-bold my-3 mt-5">
+                        <div class=" fw-bold my-3 mt-4">
                             Profile
                         </div>
                     </li>
-                    <li class="d-grid mx-1 mb-3">
-                        <a href="" class=" mx-auto nav-link">
+                    <li class="d-grid mx-1 mb-3 {{ request()->is('admin/profile') ? 'btn-primary' : 'nav-btn' }}">
+                        <a href="{{ url('/admin/profile') }}" class=" mx-auto nav-link">
                             <span>
                                 <i class="bi bi-person-bounding-box me-2"></i>
                             </span>

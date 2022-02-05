@@ -24,5 +24,4 @@
 
 </head>
 
-
 @yield('nav')

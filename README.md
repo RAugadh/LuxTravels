@@ -25,7 +25,7 @@ Link=> https://github.com/RAugadh/LuxTravels
 
 ## Migrate Database with dummy users
 
-    php artisan migrate –seed
+    php artisan migrate:fresh --seed
 
 ## Run Application
 

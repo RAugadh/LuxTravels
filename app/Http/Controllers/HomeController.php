@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Role;
+use App\Models\Tickets;
 use App\Models\User;
 use App\Models\Tour;
 use App\Models\ToursModule;
@@ -12,9 +15,18 @@ class HomeController extends Controller
 {
     public function index(){
         if (Gate::allows('is-user')){
-            return view('user.dashboard');
+            return view('user.dashboard')->with([
+                'tours' => Tour::all(),
+                'tickets' =>Tickets::latest()->get(),
+            ]);
         }
-        return view('admin.dashboard');
+        return view('admin.dashboard')->with([
+            'users' => User::latest()->take(4)->get(),
+            'roles' => Role::all(),
+            'tickets' =>Tickets::latest()->take(4)->get(),
+            'tours' => Tour::all(),
+            't_users'=> User::all(),
+        ]);
     }
     public static function home(){
         return view('index')

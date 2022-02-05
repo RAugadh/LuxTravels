@@ -18,8 +18,11 @@ class CreateToursTable extends Migration
             $table->string('name');
             $table->string('sub');
             $table->string('image')->nullable();
-            $table->longText('description');
+            $table->text('description');
             $table->decimal('price');
+            $table->string('boarding_1');
+            $table->string('boarding_2')->nullable();
+            $table->string('boarding_3')->nullable();
             $table->boolean('highlight')->default(0);
             $table->timestamps();
         });

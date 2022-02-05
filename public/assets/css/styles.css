@@ -27,12 +27,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500&display=swap");
 
 /* start here */
+/* Scroll Bar */
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.21);
+    border-radius: 4px;
+    background-color: #f9f2f2;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #f9f2f2;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.21);
+    background-color: #555;
+}
 /* body */
 .bgdrake {
     background-color: var(--drakeDark);
 }
 .bg-content {
     background-color: var(--drakeLight);
+}
+.bg-content-l {
+    background-color: var(--fontLight);
 }
 .lightfont {
     color: var(--fontLight);
@@ -78,7 +99,7 @@ body {
 .hero-image img {
     box-shadow: 5px 10px #007bc796;
     border-radius: 15% 25%;
-    width: 500px;
+    width: 550px;
 }
 .hero-text {
     padding: 4rem 3rem 2rem 3rem;
@@ -172,6 +193,14 @@ body {
     margin: 2rem 0;
     text-transform: uppercase;
     text-align: center;
+}
+.create-frm {
+    box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
+    border-radius: 10px;
+    background-color: rgba(0, 123, 199, 0.3);
+    overflow: hidden;
+    position: relative;
+    height: 100%;
 }
 /* Cards */
 .postcard {
@@ -360,6 +389,96 @@ section > .primary-btn {
 }
 
 .custom-file-button:hover label {
-    background-color: #dde0e3;
+    background-color: #ffffff;
     cursor: pointer;
+}
+
+.row {
+    overflow: hidden;
+}
+
+.toggle_bar {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.1);
+    width: 70px;
+    display: block;
+    height: 30px;
+    position: relative;
+    overflow: hidden;
+    margin: 1em auto;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.toggle_bar .toggle_square {
+    border-radius: 4px;
+    transition: left 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+        background 0.2s ease;
+    background: #da4453;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 40px;
+    width: 30px;
+    height: 100%;
+    border: 1px solid transparent;
+    box-shadow: 0 4px 16px 8px rgba(0, 0, 0, 0.15);
+}
+.toggle_bar .toggle_square:before {
+    content: "×";
+    display: block;
+    color: white;
+    will-change: content;
+    transition: content 0.2s ease;
+    line-height: 30px;
+    text-align: center;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.contract_toggle input[type="checkbox"] {
+    display: none;
+    position: absolute;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.contract_toggle input[type="checkbox"]:checked ~ .toggle_bar .toggle_square {
+    background: #37bc9b;
+    left: 0;
+}
+.contract_toggle
+    input[type="checkbox"]:checked
+    ~ .toggle_bar
+    .toggle_square:before {
+    content: "✓";
+}
+/**
+ * Profile image component
+ */
+.profile-header-container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.profile-header-img > img.img-circle {
+    width: 120px;
+    height: 120px;
+    border: 2px solid #51d2b7;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/**
+ * Ranking component
+ */
+.rank-label-container {
+    margin-top: -19px;
+    /* z-index: 1000; */
+    text-align: center;
+}
+
+.label.label-default.rank-label {
+    background-color: rgb(81, 210, 183);
+    padding: 5px 10px 5px 10px;
+    border-radius: 27px;
 }

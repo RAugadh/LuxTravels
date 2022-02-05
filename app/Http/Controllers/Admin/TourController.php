@@ -52,7 +52,11 @@ class TourController extends Controller
         $tour->sub = $request->sub;
         $tour->description = $request->description;
         $tour->price = $request->price;
+        $tour->boarding_1 = $request->boarding_1;
+        $tour->boarding_2 = $request->boarding_2;
+        $tour->boarding_3 = $request->boarding_3;
         $tour->highlight = $request->highlight;
+
         if($request->hasFile('image'))
         {
             $file = $request->file('image');
@@ -119,6 +123,9 @@ class TourController extends Controller
         $tour->sub = $request->sub;
         $tour->description = $request->description;
         $tour->price = $request->price;
+        $tour->boarding_1 = $request->boarding_1;
+        $tour->boarding_2 = $request->boarding_2;
+        $tour->boarding_3 = $request->boarding_3;
         $tour->highlight = $request->highlight;
         if($request->hasFile('image'))
         {
