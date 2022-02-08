@@ -8,7 +8,7 @@
             <h3 class=" float-start">Booked Tickets </h3>
         </div>
         <div class="bg-transparent darkfont shadow-sm py-3 mb-5 bg-white rounded">
-            <table id="tableCrud" class="table display table-borderless table-striped mt-3 py-2 text-center"
+            <table id="ticketCrud" class="table display table-borderless table-striped mt-3 py-2 text-center"
                 style="width:100%">
                 <thead>
                     <tr>
@@ -90,5 +90,7 @@
         </div>
 
     </div>
+    <script>
 
+    </script>
 @endsection

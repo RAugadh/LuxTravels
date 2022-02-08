@@ -10,7 +10,7 @@
             <a class=" float-end btn btn-success" href="{{ route('admin.users.create') }}" role="button">Create</a>
         </div>
         <div class="bg-transparent darkfont shadow-sm p-2 mb-5 bg-white rounded">
-            <table id="tableCrud" class="table table-borderless table-striped mt-3 p-2 text-center" style="width:100%">
+            <table id="userCrud" class="table table-borderless table-striped mt-3 p-2 text-center" style="width:100%">
                 <thead>
                     <tr>
                         <th>#ID</th>
