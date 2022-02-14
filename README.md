@@ -1,3 +1,5 @@
+Deployed Live Demo => http://luxtravels.herokuapp.com
+
 ## Requirement
 
 -   XAMPP => PHP-8, MySQL
