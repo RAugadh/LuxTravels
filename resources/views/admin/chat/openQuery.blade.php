@@ -3,8 +3,20 @@
 @section('admindash')
     <div class="container">
         <div class="nav text-dark border p-3">
-            <h3 class="">{{ 'Subject :' . ' ' . $instance->subject }}</h3>
+            <h3 class="float-start me-5">{{ 'Subject :' . ' ' . $instance->subject }}</h3>
+            <div class="d-flex  ms-5">
+                <div class="float-end">
+                    <form action="{{ url('admin/query/close', $instance->id) }}" method="POST">
+                        <a href="" class="btn btn-success ms-5"> Refresh</a>
+                        <a href="{{ url('admin/queries') }}" class="btn btn-dark ms-4"> Return to Queries</a>
 
+                        @csrf
+                        @method('PATCH')
+                        <input type="hidden" name="status" value="1">
+                        <button type="submit" class="btn btn-danger ms-5">Close Current Query</button>
+                    </form>
+                </div>
+            </div>
         </div>
         <div class="position-relative text-dark mx-5">
             <div class="chat-messages p-4">

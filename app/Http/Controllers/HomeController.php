@@ -14,19 +14,21 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-        if (Gate::allows('is-user')){
-            return view('user.dashboard')->with([
+        if (Gate::allows('is-admin')){
+
+            return view('admin.dashboard')->with([
+                'users' => User::latest()->take(4)->get(),
+                'roles' => Role::all(),
+                'tickets' =>Tickets::latest()->take(4)->get(),
                 'tours' => Tour::all(),
-                'tickets' =>Tickets::latest()->get(),
+                't_users'=> User::all(),
             ]);
         }
-        return view('admin.dashboard')->with([
-            'users' => User::latest()->take(4)->get(),
-            'roles' => Role::all(),
-            'tickets' =>Tickets::latest()->take(4)->get(),
+        return view('user.dashboard')->with([
             'tours' => Tour::all(),
-            't_users'=> User::all(),
+            'tickets' =>Tickets::latest()->get(),
         ]);
+
     }
     public static function home(){
         return view('index')

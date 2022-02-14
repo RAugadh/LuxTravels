@@ -14,14 +14,15 @@
     <link href="{{ asset('assets/css/styles.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
-    <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}" defer></script>
-    <script src="{{ asset('assets/js/bootstrap.bundle.js') }}" defer></script>
-    <script src="{{ asset('assets/js/datatables.js') }}" defer></script>
-    <script src="{{ asset('assets/js/dataTables.bootstrap5.js') }}" defer></script>
-    <script src="{{ asset('assets/js/script.js') }}" defer></script>
+
 
 
 
 </head>
 
 @yield('nav')
+<script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}" defer></script>
+<script src="{{ asset('assets/js/bootstrap.bundle.js') }}" defer></script>
+<script src="{{ asset('assets/js/datatables.js') }}" defer></script>
+<script src="{{ asset('assets/js/dataTables.bootstrap5.js') }}" defer></script>
+<script src="{{ asset('assets/js/script.js') }}" defer></script>

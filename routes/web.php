@@ -24,7 +24,7 @@ Route::middleware(['auth','verified'])->name('home')->group(function (){
 });
 
 // Admin Routes
-Route::prefix('admin')->middleware(['auth','verified','can:is-admin'])->name('admin.')->group(function (){
+Route::prefix('admin')->middleware(['auth','verified','auth.isAdmin'])->name('admin.')->group(function (){
 
     Route::resource('/users', UserController::class);
     Route::resource('/tours', TourController::class);

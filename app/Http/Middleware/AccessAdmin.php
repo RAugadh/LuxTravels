@@ -20,9 +20,6 @@ class AccessAdmin
         if(Gate::allows('is-admin')){
             return $next($request);
         }
-        elseif(Gate::allows('is-user')){
-            return redirect('/dashboard');
-        }
         return redirect('/');
 
     }
