@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('nav')
     <div class=" pt-5 d-flex d-print-none">
-        <a href="{{ url('/user/tickets') }}" class="btn btn-secondary float-start ms-5">Go Back</a>
+        <a href="{{ url('/tickets') }}" class="btn btn-secondary float-start ms-5">Go Back</a>
         <button onclick="window.print()" class="btn btn-primary  mx-auto">Print Ticket</button>
     </div>
     <div class="container p-5 d-print-block" id="outprint">

@@ -203,6 +203,7 @@ body {
     height: 100%;
 }
 /* Cards */
+
 .postcard {
     flex-wrap: wrap;
     display: flex;
@@ -254,6 +255,9 @@ body {
     flex-direction: column;
 }
 .postcard .postcard__preview-txt {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: justify;
@@ -481,4 +485,27 @@ section > .primary-btn {
     background-color: rgb(81, 210, 183);
     padding: 5px 10px 5px 10px;
     border-radius: 27px;
+}
+
+.chat-messages {
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+.chat-message-left,
+.chat-message-right {
+    display: flex;
+    flex-shrink: 0;
+    word-wrap: break-word;
+}
+
+.chat-message-left {
+    margin-right: auto;
+}
+
+.chat-message-right {
+    flex-direction: row-reverse;
+    margin-left: auto;
 }

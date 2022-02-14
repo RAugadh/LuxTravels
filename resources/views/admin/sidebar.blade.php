@@ -14,7 +14,7 @@
             <nav class=" navbar-dark">
                 <ul class="navbar-nav">
                     <li class="d-grid mx-1 mb-4 {{ request()->is('dashboard') ? 'btn-primary' : 'nav-btn' }}">
-                        <a href="{{ url('dashboard') }}" class=" nav-link mx-auto">
+                        <a href="{{ url('dashboard') }}" class=" nav-link mx-auto border-0">
                             <span>
                                 <i class="bi bi-speedometer2 me-2"></i>
                             </span>
@@ -27,19 +27,19 @@
                         </div>
                     </li>
                     <li class="d-grid mx-1 {{ request()->is('admin/users') ? 'btn-primary' : 'nav-btn' }}">
-                        <a href="{{ url('admin/users') }}" class=" nav-link mx-auto">
+                        <a href="{{ url('admin/users') }}" class=" nav-link mx-auto border-0">
                             <span>
                                 <i class="bi bi-people-fill me-2"></i>
                             </span>
                             <span>User Management</span>
                         </a>
                     </li>
-                    <li class="d-grid mx-1 mt-2 {{ request()->is('admin/users') ? 'btn-primary' : 'nav-btn' }}">
-                        <a href="{{ url('admin/users') }}" class=" nav-link mx-auto">
+                    <li class="d-grid mx-1 mt-2 {{ request()->is('admin/queries') ? 'btn-primary' : 'nav-btn' }}">
+                        <a href="{{ url('admin/queries') }}" class=" nav-link mx-auto border-0">
                             <span>
                                 <i class="bi bi-headset me-2"></i>
                             </span>
-                            <span>Raised Ticket</span>
+                            <span>Raised Query</span>
                         </a>
                     </li>
 
@@ -49,7 +49,7 @@
                         </div>
                     </li>
                     <li class="d-grid mx-1 mb-3 {{ request()->is('admin/tickets') ? 'btn-primary' : 'nav-btn' }}">
-                        <a href="{{ url('admin/tickets') }}" class=" nav-link  mx-auto">
+                        <a href="{{ url('admin/tickets') }}" class=" nav-link  mx-auto border-0">
                             <span>
                                 <i class="bi bi-ticket-detailed me-2"></i>
                             </span>
@@ -57,7 +57,7 @@
                         </a>
                     </li>
                     <li class="d-grid mx-1 {{ request()->is('admin/tours') ? 'btn-primary' : 'nav-btn' }}">
-                        <a href="{{ url('admin/tours') }}" class=" mx-auto nav-link">
+                        <a href="{{ url('admin/tours') }}" class=" mx-auto nav-link border-0">
                             <span>
                                 <i class="bi bi-box-seam me-2"></i>
                             </span>
@@ -70,7 +70,7 @@
                         </div>
                     </li>
                     <li class="d-grid mx-1 mb-3 {{ request()->is('admin/profile') ? 'btn-primary' : 'nav-btn' }}">
-                        <a href="{{ url('/admin/profile') }}" class=" mx-auto nav-link">
+                        <a href="{{ url('/admin/profile') }}" class=" mx-auto nav-link border-0">
                             <span>
                                 <i class="bi bi-person-bounding-box me-2"></i>
                             </span>
@@ -80,7 +80,7 @@
                     <li>
                         <form class="d-grid mx-1 mt-4 " action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <button type="submit" class="btn-danger nav-link mx-1">
+                            <button type="submit" class="btn-danger nav-link mx-1 border-0">
                                 <span>
                                     <i class="bi bi-box-arrow-left me-2"></i>
                                 </span>

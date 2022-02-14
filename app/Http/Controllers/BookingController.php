@@ -51,6 +51,6 @@ class BookingController extends Controller
         $ticket->save();
 
         $request->session()->flash('success', 'The Tour has been Booked.');
-        return redirect(url('/user/book'));
+        return redirect(url('/book'));
     }
 }

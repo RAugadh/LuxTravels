@@ -27,7 +27,7 @@
                 <ol class="list-group border bg-gradient">
                     <div class="border-end bg-content p-2">
                         <h4 class="float-start text-white ms-3">Last Booked</h4>
-                        <a href="{{ url('admin/users') }}" class="float-end text-info me-3">See All</a>
+                        <a href="{{ url('tickets') }}" class="float-end text-info me-3">See All</a>
                     </div>
                     @if (!empty($tickets) && $tickets->count())
                         @foreach ($tickets as $ticket)
@@ -74,7 +74,7 @@
                 <ol class="list-group border bg-gradient">
                     <div class="border-end bg-content p-2">
                         <h4 class="float-start text-white ms-3">Last Cancelled</h4>
-                        <a href="{{ url('admin/tickets') }}" class="float-end text-info me-3">See All</a>
+                        <a href="{{ url('tickets') }}" class="float-end text-info me-3">See All</a>
                     </div>
                     @if (!empty($tickets) && $tickets->count())
                         @foreach ($tickets->take(3) as $ticket)

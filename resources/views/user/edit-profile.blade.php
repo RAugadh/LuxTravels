@@ -5,7 +5,7 @@
 @endsection
 
 @section('userdash')
-    <form action="{{ url('user/profile/update', Auth::user()->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('profile/update', Auth::user()->id) }}" method="POST" enctype="multipart/form-data">
         @method('PATCH')
         @csrf
         <div class="row">
@@ -35,7 +35,7 @@
                 <span class="mx-5"></span>
                 <div class="mt-5 mb-3 text-center">
                     <h6>Looking to change Password?</h6>
-                    <a class=" btn btn-sm btn-info mx-3" href="{{ url('user/password/edit') }}">Change Password</a>
+                    <a class=" btn btn-sm btn-info mx-3" href="{{ url('password/edit') }}">Change Password</a>
                 </div>
             </div>
             <div class="col-7 p-5 mt-5">

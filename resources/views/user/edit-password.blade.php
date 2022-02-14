@@ -39,7 +39,7 @@
 
                 </div>
                 <div class="card-footer text-center">
-                    <a class=" btn btn-info" href="{{ url('/user/profile') }}">{{ __('Return to Profile') }}</a>
+                    <a class=" btn btn-info" href="{{ url('/profile') }}">{{ __('Return to Profile') }}</a>
                 </div>
             </div>
 

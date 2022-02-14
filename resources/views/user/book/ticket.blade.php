@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="px-3 py-2"><a class="btn btn-primary" href="{{ url('user/book') }}"> Go Back</a></div>
+    <div class="px-3 py-2"><a class="btn btn-primary" href="{{ url('/book') }}"> Go Back</a></div>
     <div class="px-3 py-2 row g-3 shadow">
         <div class="col-5">
             <div class="card m-2 p-2 bg-transparent">
@@ -58,7 +58,7 @@
                 <div class="p-2 card-header text-center">
                     <h5>Ticket Details</h5>
                 </div>
-                <form action="{{ url('user/book/store', [($user_id = Auth::user()->id), ($tour_id = $tour->id)]) }}"
+                <form action="{{ url('book/store', [($user_id = Auth::user()->id), ($tour_id = $tour->id)]) }}"
                     method="POST">
                     @csrf
                     <div class="mb-3 mx-3">

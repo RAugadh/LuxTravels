@@ -14,7 +14,7 @@
             <nav class=" navbar-dark">
                 <ul class="navbar-nav">
                     <li class="d-grid mx-1 {{ request()->is('dashboard') ? 'btn-primary' : 'nav-btn' }}">
-                        <a href="{{ url('dashboard') }}" class=" nav-link mx-auto">
+                        <a href="{{ url('dashboard') }}" class=" nav-link mx-auto border-0">
                             <span>
                                 <i class="bi bi-speedometer2 me-2"></i>
                             </span>
@@ -26,16 +26,16 @@
                             Booking
                         </div>
                     </li>
-                    <li class="d-grid mx-1 mb-3 {{ request()->is('user/book') ? 'btn-primary' : 'nav-btn' }}">
-                        <a href="{{ url('user/book') }}" class=" nav-link  mx-auto">
+                    <li class="d-grid mx-1 mb-3 {{ request()->is('book') ? 'btn-primary' : 'nav-btn' }}">
+                        <a href="{{ url('book') }}" class=" nav-link  mx-auto border-0">
                             <span>
                                 <i class="bi bi-ticket-detailed me-2"></i>
                             </span>
                             <span>Book Travel Package</span>
                         </a>
                     </li>
-                    <li class="d-grid mx-1 mb-3 {{ request()->is('user/tickets') ? 'btn-primary' : 'nav-btn' }}">
-                        <a href="{{ url('user/tickets') }}" class=" mx-auto nav-link">
+                    <li class="d-grid mx-1 mb-3 {{ request()->is('tickets') ? 'btn-primary' : 'nav-btn' }}">
+                        <a href="{{ url('tickets') }}" class=" mx-auto nav-link border-0">
                             <span>
                                 <i class="bi bi-ticket-fill me-2"></i>
                             </span>
@@ -48,16 +48,16 @@
                             Profile
                         </div>
                     </li>
-                    <li class="d-grid mx-1 mb-5 {{ request()->is('user/profile') ? 'btn-primary' : 'nav-btn' }}">
-                        <a href="{{ url('/user/profile') }}" class=" mx-auto nav-link ">
+                    <li class="d-grid mx-1 mb-5 {{ request()->is('profile') ? 'btn-primary' : 'nav-btn' }}">
+                        <a href="{{ url('profile') }}" class=" mx-auto nav-link border-0">
                             <span>
                                 <i class="bi bi-person-bounding-box me-2"></i>
                             </span>
                             <span>Update Profile</span>
                         </a>
                     </li>
-                    <li class="d-grid mx-1 mt-4 ">
-                        <a href="" class=" mx-auto nav-link">
+                    <li class="d-grid mx-1 mt-4 {{ request()->is('chat') ? 'btn-primary' : 'nav-btn' }}">
+                        <a href="{{ url('chat') }}" class=" mx-auto nav-link border-0">
                             <span>
                                 <i class="bi bi-headset me-2"></i>
                             </span>
@@ -67,7 +67,7 @@
                     <li>
                         <form class="d-grid mx-1 mt-4 " action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <button type="submit" class="btn-danger nav-link mx-1">
+                            <button type="submit" class="btn-danger nav-link mx-1 border-0">
                                 <span>
                                     <i class="bi bi-box-arrow-left me-2"></i>
                                 </span>

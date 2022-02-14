@@ -12,6 +12,11 @@ $(document).ready(function () {
     });
 });
 $(document).ready(function () {
+    $("#chatCrud").DataTable({
+        order: [[0, "desc"]],
+    });
+});
+$(document).ready(function () {
     $("#myInput").on("keyup", function () {
         var value = $(this).val().toLowerCase();
         $("#myDIV .postcard").filter(function () {

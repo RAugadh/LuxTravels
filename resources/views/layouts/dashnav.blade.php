@@ -18,7 +18,12 @@
 
                 <ul class="navbar-nav ms-auto text-center">
                     <li class="nav-item">
-                        <h6 class="mx-3">{{ __('Greetings,') }} &nbsp{{ Auth::user()->name }} </h6>
+                        <h6 class="mx-3 my-2">{{ __('Greetings,') }} &nbsp{{ Auth::user()->name }} </h6>
+
+                    </li>
+                    <li class="nav-item  me-3">
+                        <img src="@if (Auth::user()->photo !== null) {{ asset('uploads/profile') }}/{{ Auth::user()->photo }} @else{{ asset('assets/images/profile.jpg') }} @endif" class="rounded-circle" alt="{{ Auth::user()->name }}"
+                            width="38" height="45">
                     </li>
                 </ul>
             </div>

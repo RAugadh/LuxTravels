@@ -59,4 +59,12 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return null !== $this->roles()->where('name',$role)->first();
     }
+    public function chat_instances()
+    {
+        return $this->hasMany(ChatInstance::class);
+    }
+    public function chat_messages()
+    {
+        return $this->hasMany(ChatMessage::class);
+    }
 }

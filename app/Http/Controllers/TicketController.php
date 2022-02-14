@@ -13,8 +13,8 @@ class TicketController extends Controller
     public function index(){
 
         return view('user.tickets.index')->with([
-            'tickets' => Tickets::latest()->find($user_id = Auth::user()->id)->get(),
             'tours' => Tour::all(),
+            'tickets' =>Tickets::latest()->get(),
         ]);
     }
 
@@ -24,11 +24,11 @@ class TicketController extends Controller
         $ticket = Tickets::find($id);
         if(!$ticket){
             $request->session()->flash('error', 'Ticket Cannot be Canceled.');
-            return redirect(url('/user/tickets/'));
+            return redirect(url('/tickets'));
         }
         $ticket->update($request->except('_token'));
         $request->session()->flash('success', 'Ticket has been Canceled.');
-        return redirect(url('/user/tickets/'));
+        return redirect(url('/tickets'));
     }
 
     public function print($id){

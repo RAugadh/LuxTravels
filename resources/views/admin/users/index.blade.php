@@ -37,25 +37,49 @@
                                 <a href="{{ route('admin.users.edit', $user->id) }}" role="button"
                                     class="btn btn-primary"><i class="bi bi-pen">{{ __(' Edit') }}</i>
                                 </a>
-
-                                <button type="button" class="btn btn-danger"
-                                    onclick=" event.preventDefault(); document.getElementById('delete-user-form-{{ $user->id }}').submit()">
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#userDelete{{ $user->id }}">
                                     <i class="bi bi-trash">{{ __(' Delete') }}</i></button>
 
-                                <form id="delete-user-form-{{ $user->id }}"
-                                    action="{{ route('admin.users.destroy', $user->id) }}" method="POST"
-                                    style="display: none">
-                                    @csrf
-                                    @method("DELETE")
-                                </form>
                             </td>
                         </tr>
+                        <div class="modal fade" id="userDelete{{ $user->id }}" data-bs-backdrop="static"
+                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="userDeleteLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-danger" id="userDeleteLabel">Confirmation</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you Sure you want to delete User ID #{{ $user->id }}
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-danger"
+                                            onclick=" event.preventDefault(); document.getElementById('delete-user-form-{{ $user->id }}').submit()">
+                                            <i class="bi bi-trash">{{ __(' Delete') }}</i></button>
+
+                                        <form id="delete-user-form-{{ $user->id }}"
+                                            action="{{ route('admin.users.destroy', $user->id) }}" method="POST"
+                                            style="display: none">
+                                            @csrf
+                                            @method("DELETE")
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     @endforeach
 
 
                 </tbody>
 
             </table>
+
         </div>
     </div>
 @endsection

@@ -15,6 +15,10 @@ class CreateChatInstancesTable extends Migration
     {
         Schema::create('chat_instances', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->boolean("status")->default(0);
+            $table->string('assigned_to')->nullable();
+            $table->string('subject')->nullable();
             $table->timestamps();
         });
     }

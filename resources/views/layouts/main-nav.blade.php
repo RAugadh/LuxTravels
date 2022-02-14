@@ -28,7 +28,6 @@
                                 </li>
                             @else
                                 <ul class="navbar-nav ms-auto text-center">
-
                     @endif
 
                     @if (Route::has('login'))
@@ -55,6 +54,7 @@
         </div>
         </nav>
         @yield('content')
+
         </div>
     </body>
 

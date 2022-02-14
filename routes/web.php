@@ -4,6 +4,7 @@ use Illuminate\Routing\RouteGroup;
 use Admin\UserController;
 use Admin\TourController;
 use Admin\TicketController;
+use Admin\QueryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,16 +33,24 @@ Route::prefix('admin')->middleware(['auth','verified','can:is-admin'])->name('ad
     Route::view('/profile', 'admin.edit-profile')->name('profile');
     Route::patch('/profile/update/{id}', 'Admin\ProfileController@update');
     Route::view('/password/edit', 'admin.edit-password')->name('password.edit');
+    Route::get('/queries', 'Admin\QueryController@viewQuery');
+    Route::get('/new-query', 'Admin\QueryController@newQuery');
+    Route::patch('/query/accept/{id}', 'Admin\QueryController@acceptQuery');
+    Route::get('/openQuery/{id}', 'Admin\QueryController@openQuery');
+    Route::post('/sendMsg/{chat_instance_id}', 'Admin\QueryController@sendMsg');
+    Route::patch('/query/close/{id}', 'Admin\QueryController@closeQuery');
 });
 // User Routes
 Route::middleware(['auth','verified'])->name('user.')->group(function (){
-    Route::get('/user/book', 'BookingController@index');
-    Route::get('/user/book/ticket/{id}', 'BookingController@ticket');
-    Route::post('/user/book/store/{user_id}/{tour_id}', 'BookingController@store');
-    Route::get('/user/tickets', 'TicketController@index');
-    Route::post('/user/tickets/cancel/{id}', 'TicketController@cancel');
-    Route::get('/user/tickets/print/{id}', 'TicketController@print');
-    Route::view('/user/profile', 'user.edit-profile')->name('profile');
-    Route::patch('/user/profile/update/{id}', 'Admin\ProfileController@update');
-    Route::view('/user/password/edit', 'user.edit-password')->name('password.edit');
+    Route::get('/book', 'BookingController@index');
+    Route::get('/book/ticket/{id}', 'BookingController@ticket');
+    Route::post('/book/store/{user_id}/{tour_id}', 'BookingController@store');
+    Route::get('/tickets', 'TicketController@index');
+    Route::post('/tickets/cancel/{id}', 'TicketController@cancel');
+    Route::get('/tickets/print/{id}', 'TicketController@print');
+    Route::view('/profile', 'user.edit-profile')->name('profile');
+    Route::patch('/profile/update/{id}', 'Admin\ProfileController@update');
+    Route::view('/password/edit', 'user.edit-password')->name('password.edit');
+    Route::resource('/chat', ChatController::class);
+    Route::post('/chat/send/{chat_instance_id}', 'ChatController@sendMsg');
 });
