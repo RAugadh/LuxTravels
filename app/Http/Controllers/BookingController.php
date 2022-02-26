@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
 use App\Models\Tour;
 use App\Models\ToursModule;
 use App\Models\Tickets;
@@ -30,6 +32,17 @@ class BookingController extends Controller
 
     public function store(Request $request, $user_id, $tour_id)
     {
+        $validator = Validator::make($request->all(), [
+            'passengers' => 'required',
+            'boarding_date' => 'required',
+            'boarding_date' => 'required',
+            'boarding_at' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            Session::flash('error', 'Input Valid Information');
+            return redirect()->back();
+        }
         $data = $request->all();
         $id = $tour_id;
         $tour = Tour::find($id);

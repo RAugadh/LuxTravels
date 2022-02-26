@@ -10,7 +10,8 @@
         <div class="col-5">
             <div class="card m-2 p-2 bg-transparent">
                 <img class="w-75 rounded mx-auto mt-2 card-img-top border border-4 border-light rounded"
-                    src="@if (@isset($tour)) {{ asset('uploads/tours') }}/{{ $tour->image }} @else{{ asset('assets/images/placeholder1.jpg') }} @endif" class="card-img-top" alt="...">
+                    src="@if (@isset($tour)) {{ asset('uploads/tours') }}/{{ $tour->image }} @else{{ asset('assets/images/placeholder1.jpg') }} @endif"
+                    class="card-img-top" alt="...">
                 <div class="card-body">
                     <div class="p-2">
                         <h2 class=" card-title"> {{ $tour->name }}</h2>
@@ -40,7 +41,8 @@
                                     </li>
                                     <li class="list-group-item bg-transparent lightfont">
                                         <i class="bi bi-play mr-2"></i>{{ $module->module_5 }}
-                                </li>@endisset
+                                    </li>
+                                @endisset
                             </ul>
                         </div>
                         <h4 class=" card-footer">Priced Rs {{ $tour->price }}</h4>
@@ -58,6 +60,7 @@
                 <div class="p-2 card-header text-center">
                     <h5>Ticket Details</h5>
                 </div>
+                @include('partials.alerts')
                 <form action="{{ url('book/store', [($user_id = Auth::user()->id), ($tour_id = $tour->id)]) }}"
                     method="POST">
                     @csrf

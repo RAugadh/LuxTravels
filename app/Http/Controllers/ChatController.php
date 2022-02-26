@@ -6,6 +6,8 @@ use App\Models\ChatInstance;
 use App\Models\ChatMessage;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 
 class ChatController extends Controller
@@ -22,6 +24,14 @@ class ChatController extends Controller
 
     public function sendMsg(Request $request, $chat_instance_id)
     {
+        $validator = Validator::make($request->all(), [
+            'message' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            Session::flash('error', 'Input Valid Information');
+            return redirect()->back();
+        }
         $chat_msg = $request->only([
             'user_id' => 'user_id',
             'message' => 'message',
@@ -36,6 +46,16 @@ class ChatController extends Controller
     public function store(Request $request)
     {
         // dd($request);
+        $validator = Validator::make($request->all(), [
+            'subject' => 'required',
+            'message' => 'required',
+            'user_id' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            Session::flash('error', 'Input Valid Information');
+            return redirect()->back();
+        }
         $newChatIns = new ChatInstance();
         $chat_in = $newChatIns->create($request->only([
             'user_id' => 'user_id',

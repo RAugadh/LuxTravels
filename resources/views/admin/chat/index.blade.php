@@ -1,14 +1,14 @@
 @extends('admin.sidebar')
 
 @section('admindash')
-    <div class="container p-2 mb-5 ">
+    <div class="container p-2 mb-5 text-dark">
         <div class="clearfix">
             <h4 class="mt-4 float-start">User Queries</h4>
             <a href="{{ url('/admin/new-query') }}" class="btn btn-primary mt-4 me-5 float-end">Accept New Query</a>
         </div>
 
         <div class=" mt-5 ">
-            <table id="chatCrud" class="table table-borderless text-white table-striped mt-3 py-2" style="width:100%">
+            <table id="chatCrud" class="table table-borderless text-dark table-striped mt-3 py-2" style="width:100%">
                 <thead>
                     <tr>
                         <th>Chat ID</th>
@@ -21,7 +21,7 @@
                 <tbody>
                     @foreach ($chats as $chat)
                         @if ($chat->assigned_to == Auth::user()->name)
-                            <tr class="text-white">
+                            <tr class="text-dark">
                                 <td>{{ $chat->id }}</td>
                                 <td>{{ $chat->subject }}</td>
                                 <td>
@@ -63,9 +63,6 @@
         </div>
     </div>
     <script>
-        document.body.classList.remove("bg-light");
-        document.body.classList.add("bg-content");
-
         function form_submit() {
             document.getElementById("instance_form").submit();
         }

@@ -58,43 +58,45 @@
                                 data-toggle="tab" for="inputCancelled">
                                 <input type="hidden" name="cancelled" value="0">
                                 <input class="form-check-checkbox" type="checkbox" name="cancelled"
-                                    value="{{ old('cancelled') ?? 1 }}" @isset($ticket)
-                                    @if ($ticket->cancelled == 1) checked @endif @endisset id="inputCancelled">
-                                Cancelled</label>
-                        </div>
-                        <span class="m-2 mt-1"></span>
-                        <div class="row">
-                            <div class="col-6">
-                                <label for="inputPrice" class="form-label mx-2">Final Price</label>
-                                <input type="text" class="form-control form-control-lg" id="inputPrice" name="total_price"
-                                    placeholder="{{ __('User Booking') }}"
-                                    value="{{ old('total_price') }}{{ $ticket->total_price }}">
-                            </div>
-                            <input type="hidden" name="approved_by" value="{{ Auth::user()->name }}">
-                            <div class="text-center mt-2 mb-2 col-6 pt-3">
-                                @if ($ticket->cancelled != 1)
-                                    <label class=" form-check-label btn btn-large btn-warning p-2 me-3 mt-2"
-                                        data-toggle="tab" for="inputApproved">
-                                        <input type="hidden" name="approved" value="0">
-                                        <input class="form-check-checkbox" type="checkbox" name="approved"
-                                            value="{{ old('approved') ?? 1 }}" @isset($ticket)
-                                            @if ($ticket->approved == 1) checked @endif @endisset id="inputApproved">
-                                        Approval</label>
-                                @endif
-
-                                <button type="submit" class="btn btn-success mt-2 btn-lg px-5 ">
-                                    Update
-                                </button>
-                            </div>
-                        </div>
+                                    value="{{ old('cancelled') ?? 1 }}"
+                                    @isset($ticket) @if ($ticket->cancelled == 1) checked @endif
+                                @endisset id="inputCancelled">
+                            Cancelled</label>
                     </div>
+                    <span class="m-2 mt-1"></span>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="inputPrice" class="form-label mx-2">Final Price</label>
+                            <input type="text" class="form-control form-control-lg" id="inputPrice" name="total_price"
+                                placeholder="{{ __('Total Price') }}"
+                                value="{{ old('total_price') }}{{ $ticket->total_price }}" required>
+                        </div>
+                        <input type="hidden" name="approved_by" value="{{ Auth::user()->name }}">
+                        <div class="text-center mt-2 mb-2 col-6 pt-3">
+                            @if ($ticket->cancelled != 1)
+                                <label class=" form-check-label btn btn-large btn-warning p-2 me-3 mt-2"
+                                    data-toggle="tab" for="inputApproved">
+                                    <input type="hidden" name="approved" value="0">
+                                    <input class="form-check-checkbox" type="checkbox" name="approved"
+                                        value="{{ old('approved') ?? 1 }}"
+                                        @isset($ticket) @if ($ticket->approved == 1) checked @endif
+                                    @endisset id="inputApproved">
+                                Approval</label>
+                        @endif
 
+                        <button type="submit" class="btn btn-success mt-2 btn-lg px-5 ">
+                            Update
+                        </button>
+                    </div>
                 </div>
-            </form>
+            </div>
+
         </div>
-    </div>
-    <script>
-        document.body.classList.remove("bg-light");
-        document.body.classList.add("bg-content");
-    </script>
+    </form>
+</div>
+</div>
+<script>
+    document.body.classList.remove("bg-light");
+    document.body.classList.add("bg-content");
+</script>
 @endsection

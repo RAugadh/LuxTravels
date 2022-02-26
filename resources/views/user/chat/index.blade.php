@@ -1,13 +1,13 @@
 @extends('user.sidebar')
 
 @section('userdash')
-
     <div class="container p-2 mb-5 ">
         <div class="clearfix">
             <h4 class="mt-4 float-start">Get in Contact with an Admin to resolve any Issues</h4>
             <button class="btn btn-primary mt-4 me-5 float-end" data-bs-toggle="modal" data-bs-target="#newQuery">Raise new
                 Query</button>
         </div>
+        @include('partials.alerts')
         <div class="modal fade" id="newQuery" tabindex="-1" aria-labelledby="newQueryLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content darkfont">
@@ -94,5 +94,4 @@
             document.getElementById("instance_form").submit();
         }
     </script>
-
 @endsection

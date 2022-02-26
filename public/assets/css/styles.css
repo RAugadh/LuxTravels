@@ -471,7 +471,13 @@ section > .primary-btn {
     border-radius: 50%;
     object-fit: cover;
 }
-
+.img-dash {
+    width: 45px;
+    height: 45px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    object-fit: cover;
+}
 /**
  * Ranking component
  */

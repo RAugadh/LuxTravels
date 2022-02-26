@@ -5,6 +5,7 @@
 @endsection
 
 @section('userdash')
+    @include('partials.alerts')
     <form action="{{ url('profile/update', Auth::user()->id) }}" method="POST" enctype="multipart/form-data">
         @method('PATCH')
         @csrf
