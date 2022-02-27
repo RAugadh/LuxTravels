@@ -5,6 +5,7 @@ use Admin\UserController;
 use Admin\TourController;
 use Admin\TicketController;
 use Admin\QueryController;
+use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,9 @@ use Admin\QueryController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+if (env('APP_ENV') === 'production') {
+    URL::forceSchema('https');
+}
 
 Route::get('/', 'HomeController@home');
 
