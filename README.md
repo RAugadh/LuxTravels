@@ -1,4 +1,4 @@
-Deployed Live Demo => http://luxtravels.herokuapp.com
+Deployed Live Demo => https://luxtravels.herokuapp.com
 
 ## Requirement
 
