@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\URL;
 |
 */
 if (env('APP_ENV') !== 'local') {
-    URL::forceSchema('https');
+    URL::forceScheme('https');
 }
 
 Route::get('/', 'HomeController@home');
