@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\URL;
 | contains the "web" middleware group. Now create something great!
 |
 */
+if (env('APP_ENV') !== 'local') {
+    URL::forceSchema('https');
+}
 
 Route::get('/', 'HomeController@home');
 
