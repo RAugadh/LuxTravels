@@ -1,6 +1,9 @@
+## Deployment
 Deployed Live Demo => https://luxtravels.herokuapp.com
+
 Admin +> admin@lux.com | 1234568
 User => user@lux.com | 12345678
+
 ## Requirement
 
 -   XAMPP => PHP-8, MySQL
