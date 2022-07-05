@@ -1,7 +1,7 @@
 ## Deployment
 Deployed Live Demo => https://luxtravels.herokuapp.com
 
-Admin +> admin@lux.com | 1234568 <br>
+Admin => admin@lux.com | 1234568 <br>
 User => user@lux.com | 12345678
 
 ## Requirement
